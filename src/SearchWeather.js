@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/styles.css";
+import WeatherForecast from "./WeatherForecast";
 
 export default function SearchWeather() {
   return (
@@ -62,6 +63,14 @@ export default function SearchWeather() {
             <li id="humidity">Humidity: 10%</li>
             <li id="wind">Wind: 3km/h</li>
           </ul>
+        </div>
+        <div className="row weather-forecast mt-4" id="forecast">
+          <WeatherForecast day="Sun" />
+          <WeatherForecast day="Mon" />
+          <WeatherForecast day="Tue" />
+          <WeatherForecast day="Wed" />
+          <WeatherForecast day="Thu" />
+          <WeatherForecast day="Fri" />
         </div>
       </div>
     </>

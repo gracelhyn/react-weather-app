@@ -1,3 +1,11 @@
+.fs-7 {
+  font-size: 0.8rem !important;
+}
+
+.container {
+  max-width: 800px;
+}
+
 .wrapper {
   border: 1px solid;
   /* border-color: #70757a; */
