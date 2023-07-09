@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./styles/styles.css";
-import WeatherForecast from "./WeatherForecast";
 import ShowWeather from "./ShowWeather";
 
 export default function SearchWeather() {
   let [input, setInput] = useState("Iloilo");
   let [city, setCity] = useState("Iloilo");
+
+  // const currentDay = new Date().getDay();
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -41,14 +42,6 @@ export default function SearchWeather() {
         </form>
       </div>
       <ShowWeather cityName={city} />
-      <div className="row weather-forecast mt-4" id="forecast">
-        <WeatherForecast day="Sun" />
-        <WeatherForecast day="Mon" />
-        <WeatherForecast day="Tue" />
-        <WeatherForecast day="Wed" />
-        <WeatherForecast day="Thu" />
-        <WeatherForecast day="Fri" />
-      </div>
     </>
   );
 }

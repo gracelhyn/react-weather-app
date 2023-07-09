@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import WeatherForecast from "./WeatherForecast";
 
 export default function ShowWeather(props) {
   let [name, setName] = useState();
@@ -62,6 +63,9 @@ export default function ShowWeather(props) {
             <li id="wind">Wind: {Math.round(wind)}km/h</li>
           </ul>
         </div>
+      </div>
+      <div className="row weather-forecast mt-4" id="forecast">
+        <WeatherForecast day="Sun" />
       </div>
     </>
   );
