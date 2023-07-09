@@ -10,9 +10,13 @@ export default function ShowWeather(props) {
   let [humidity, setHumidity] = useState();
   let [wind, setWind] = useState();
   let [icon, setIcon] = useState();
+  let [latitude, setLatitude] = useState();
+  let [longitude, setLongitude] = useState();
 
   function handleResponse(response) {
-    console.log(response.data);
+    // console.log(response.data);
+    setLatitude(response.data.coord.lat);
+    setLongitude(response.data.coord.lon);
     setName(response.data.name);
     setCountry(response.data.sys.country);
     setTemperature(response.data.main.temp);
@@ -65,7 +69,7 @@ export default function ShowWeather(props) {
         </div>
       </div>
       <div className="row weather-forecast mt-4" id="forecast">
-        <WeatherForecast day="Sun" />
+        <WeatherForecast day="Sun" lat={latitude} lon={longitude} />
       </div>
     </>
   );
