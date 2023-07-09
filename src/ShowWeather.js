@@ -8,6 +8,7 @@ export default function ShowWeather(props) {
   let [description, setDescription] = useState();
   let [humidity, setHumidity] = useState();
   let [wind, setWind] = useState();
+  let [icon, setIcon] = useState();
 
   function handleResponse(response) {
     // console.log(response.data);
@@ -17,6 +18,9 @@ export default function ShowWeather(props) {
     setDescription(response.data.weather[0].description);
     setHumidity(response.data.main.humidity);
     setWind(response.data.wind.speed);
+    setIcon(
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+    );
   }
   let apiKey = "7746bdeabca928cfedcad71e52fd9d66";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityName}&appid=${apiKey}&units=metric`;
@@ -34,7 +38,7 @@ export default function ShowWeather(props) {
         </div>
         <div className="col-8">
           <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-night.png"
+            src={icon}
             alt="weather icon"
             className="weather-icon"
             id="weather-icon"
