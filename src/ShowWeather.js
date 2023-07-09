@@ -69,7 +69,79 @@ export default function ShowWeather(props) {
         </div>
       </div>
       <div className="row weather-forecast mt-4" id="forecast">
-        <WeatherForecast day="Sun" lat={latitude} lon={longitude} />
+        {/* <WeatherForecast day="Sun" lat={latitude} lon={longitude} /> */}
+        <div className="col-2">
+          <div className="weather-forecast-day">Mon</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            alt="weather icon"
+            width="60"
+          />
+          <div className="weather-forecast-temp">
+            <span className="fs-6">28 °C </span>
+            <span className="fs-7">82 °F</span>
+          </div>
+        </div>
+        <div className="col-2">
+          <div className="weather-forecast-day">Tue</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            alt="weather icon"
+            width="60"
+          />
+          <div className="weather-forecast-temp">
+            <span className="fs-6">28 °C </span>
+            <span className="fs-7">82 °F</span>
+          </div>
+        </div>
+        <div className="col-2">
+          <div className="weather-forecast-day">Wed</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            alt="weather icon"
+            width="60"
+          />
+          <div className="weather-forecast-temp">
+            <span className="fs-6">28 °C </span>
+            <span className="fs-7">82 °F</span>
+          </div>
+        </div>
+        <div className="col-2">
+          <div className="weather-forecast-day">Thu</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            alt="weather icon"
+            width="60"
+          />
+          <div className="weather-forecast-temp">
+            <span className="fs-6">28 °C </span>
+            <span className="fs-7">82 °F</span>
+          </div>
+        </div>
+        <div className="col-2">
+          <div className="weather-forecast-day">Fri</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            alt="weather icon"
+            width="60"
+          />
+          <div className="weather-forecast-temp">
+            <span className="fs-6">28 °C </span>
+            <span className="fs-7">82 °F</span>
+          </div>
+        </div>
+        <div className="col-2">
+          <div className="weather-forecast-day">Sat</div>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+            alt="weather icon"
+            width="60"
+          />
+          <div className="weather-forecast-temp">
+            <span className="fs-6">28 °C </span>
+            <span className="fs-7">82 °F</span>
+          </div>
+        </div>
       </div>
     </>
   );
