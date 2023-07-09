@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import WeatherForecast from "./WeatherForecast";
 
 export default function ShowWeather(props) {
   let [name, setName] = useState();
@@ -10,13 +9,13 @@ export default function ShowWeather(props) {
   let [humidity, setHumidity] = useState();
   let [wind, setWind] = useState();
   let [icon, setIcon] = useState();
-  let [latitude, setLatitude] = useState();
-  let [longitude, setLongitude] = useState();
+  // let [latitude, setLatitude] = useState();
+  // let [longitude, setLongitude] = useState();
 
   function handleResponse(response) {
     // console.log(response.data);
-    setLatitude(response.data.coord.lat);
-    setLongitude(response.data.coord.lon);
+    // setLatitude(response.data.coord.lat);
+    // setLongitude(response.data.coord.lon);
     setName(response.data.name);
     setCountry(response.data.sys.country);
     setTemperature(response.data.main.temp);
