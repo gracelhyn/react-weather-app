@@ -1,13 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles/styles.css";
 import WeatherForecast from "./WeatherForecast";
-// import axios from "axios";
+import axios from "axios";
 
 export default function SearchWeather() {
+  let [input, setInput] = useState("Iloilo");
+  let [city, setCity] = useState("Iloilo");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setCity(input);
+  }
+
+  function getCity(e) {
+    setInput(e.target.value);
+    console.log(input);
+  }
   return (
     <>
       <div className="row">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="col-6">
             <div className="input-group mb-3">
               <input
@@ -17,6 +29,7 @@ export default function SearchWeather() {
                 aria-label="Search City"
                 aria-describedby="button-addon2"
                 id="input-city"
+                onChange={getCity}
               />
               <input
                 className="btn btn-outline-secondary"
@@ -31,7 +44,7 @@ export default function SearchWeather() {
       <div className="row">
         <div className="col-7 current-weather">
           <h1 id="city" className="city">
-            Iloilo, Philippines
+            {city}, Philippines
           </h1>
           <h3 id="description" className="description">
             Broken clouds
@@ -50,7 +63,7 @@ export default function SearchWeather() {
             0
           </span>
           <span className="temp-unit">
-            <a href="/" id="celcius" class="active">
+            <a href="/" id="celcius" className="active">
               °C
             </a>{" "}
             |
