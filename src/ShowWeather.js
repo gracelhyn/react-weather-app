@@ -13,18 +13,18 @@ export default function ShowWeather(props) {
 
   function handleResponse(response) {
     console.log(response.data);
-    setName(response.data.city);
-    setCountry(response.data.country);
-    setTemperature(response.data.temperature.current);
-    setDescription(response.data.condition.description);
-    setHumidity(response.data.temperature.humidity);
+    setName(response.data.name);
+    setCountry(response.data.sys.country);
+    setTemperature(response.data.main.temp);
+    setDescription(response.data.weather[0].description);
+    setHumidity(response.data.main.humidity);
     setWind(response.data.wind.speed);
-    setIcon(response.data.condition.icon_url);
+    setIcon(
+      `https://openweathermap.org/img/wn/${response.data.weather[0].icon}.png`
+    );
   }
-  //   let apiKey = "7746bdeabca928cfedcad71e52fd9d66";
-  //   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityName}&appid=${apiKey}&units=metric`;
-  let apiKey = "1caa6b89633408117o3ebccdt1fcc4b9";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.cityName}&key=${apiKey}`;
+  let apiKey = "7746bdeabca928cfedcad71e52fd9d66";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.cityName}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(handleResponse);
   return (
     <>
