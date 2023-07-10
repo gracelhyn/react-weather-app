@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./styles/styles.css";
 import axios from "axios";
 // import ShowWeather from "./ShowWeather";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function SearchWeather(props) {
   let [city, setCity] = useState(props.city);
@@ -83,18 +84,7 @@ export default function SearchWeather(props) {
               className="weather-icon"
               id="weather-icon"
             />
-            <span className="temperature" id="temperature">
-              {Math.round(weatherData.temperature)}
-            </span>
-            <span className="temp-unit">
-              <a href="/" id="celcius" className="active">
-                °C
-              </a>{" "}
-              |
-              <a href="/" id="fahrenheit">
-                °F
-              </a>
-            </span>
+            <WeatherTemperature celcius={weatherData.temperature} />
           </div>
           <div className="col-4">
             <ul className="weather-details">

@@ -69,7 +69,7 @@
 }
 
 .temp-unit a:hover {
-  cursor: default;
+  cursor: pointer;
 }
 
 .weather-details {
