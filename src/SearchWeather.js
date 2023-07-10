@@ -3,7 +3,7 @@ import "./styles/styles.css";
 import ShowWeather from "./ShowWeather";
 
 export default function SearchWeather() {
-  let [input, setInput] = useState("Iloilo");
+  let [input, setInput] = useState();
   let [city, setCity] = useState("Iloilo");
 
   // const currentDay = new Date().getDay();
@@ -16,6 +16,7 @@ export default function SearchWeather() {
   function getCity(e) {
     setInput(e.target.value);
   }
+
   return (
     <>
       <div className="row">
