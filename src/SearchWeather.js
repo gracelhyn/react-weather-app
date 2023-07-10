@@ -3,6 +3,7 @@ import "./styles/styles.css";
 import axios from "axios";
 // import ShowWeather from "./ShowWeather";
 import WeatherTemperature from "./WeatherTemperature";
+import WeatherForecast from "./WeatherForecast";
 
 export default function SearchWeather(props) {
   let [city, setCity] = useState(props.city);
@@ -21,9 +22,10 @@ export default function SearchWeather(props) {
   }
 
   function handleResponse(response) {
-    // console.log(response.data);
+    // console.log(response.data.coord);
     // setLatitude(response.data.coord.lat);
     setWeaherData({
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       city: response.data.name,
       country: response.data.sys.country,
@@ -94,6 +96,9 @@ export default function SearchWeather(props) {
               <li id="wind">Wind: {Math.round(weatherData.wind)}km/h</li>
             </ul>
           </div>
+        </div>
+        <div className="row weather-forecast mt-4" id="forecast">
+          <WeatherForecast coordinates={weatherData.coordinates} />
         </div>
       </>
     );

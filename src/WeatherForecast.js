@@ -14,13 +14,13 @@ export default function WeatherForecast(props) {
     return days[day];
   }
 
-  if (props.lat && props.lon) {
+  if (props.coordinates.lat && props.coordinates.lon) {
     function handleResponse(response) {
       // console.log(response.data);
       setForecasts(response.data.daily);
     }
-    let apiKey = "7746bdeabca928cfedcad71e52fd9d66";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.lat}&lon=${props.lon}&exclude=current,hourly,minutely&appid=${apiKey}&units=metric`;
+    let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=current,hourly,minutely&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return (
       <>
