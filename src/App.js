@@ -11,9 +11,17 @@ function App() {
           </div>
           <div className="container">
             <p>
-              This site is coded by Grace Lhyn Legaste and is{" "}
-              <a href="https://github.com/gracelhyn/react-weather-app">
-                Open-source
+              This project is coded by{" "}
+              <a
+                href="https://chimerical-cuchufli-aeb64b.netlify.app/"
+                target="_blank"
+              ></a>{" "}
+              Grace Legaste and is{" "}
+              <a
+                href="https://github.com/gracelhyn/react-weather-app"
+                target="_blank"
+              >
+                Open-sourced
               </a>
             </p>
           </div>
