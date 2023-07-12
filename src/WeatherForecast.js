@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./styles/styles.css";
 import { InfinitySpin } from "react-loader-spinner";
@@ -6,6 +6,10 @@ import { InfinitySpin } from "react-loader-spinner";
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecasts, setForecasts] = useState([]);
+
+  useEffect(() => {
+    setLoaded(false);
+  }, [props.coordinates]);
 
   function formatDay(timeStamp) {
     let date = new Date(timeStamp * 1000);
@@ -16,7 +20,7 @@ export default function WeatherForecast(props) {
   }
 
   function handleResponse(response) {
-    console.log(response.data);
+    // console.log(response.data);
     setForecasts(response.data.daily);
     setLoaded(true);
   }
@@ -32,7 +36,7 @@ export default function WeatherForecast(props) {
                   {formatDay(forecast.dt)}
                 </div>
                 <img
-                  src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-day.png"
+                  src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`}
                   alt="weather icon"
                   width="60"
                 />
@@ -53,7 +57,7 @@ export default function WeatherForecast(props) {
       </>
     );
   } else {
-    let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
+    let apiKey = "7746bdeabca928cfedcad71e52fd9d66";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=current,hourly,minutely&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return <InfinitySpin width="200" color="#4fa94d" />;
