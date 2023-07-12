@@ -15,11 +15,13 @@ function App() {
               <a
                 href="https://chimerical-cuchufli-aeb64b.netlify.app/"
                 target="_blank"
+                rel="noreferrer"
               ></a>{" "}
               Grace Legaste and is{" "}
               <a
                 href="https://github.com/gracelhyn/react-weather-app"
                 target="_blank"
+                rel="noreferrer"
               >
                 Open-sourced
               </a>
