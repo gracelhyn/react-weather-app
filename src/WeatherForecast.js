@@ -4,6 +4,7 @@ import "./styles/styles.css";
 import { InfinitySpin } from "react-loader-spinner";
 
 export default function WeatherForecast(props) {
+  let [loaded, setLoaded] = useState(false);
   let [forecasts, setForecasts] = useState([]);
 
   function formatDay(timeStamp) {
@@ -14,17 +15,16 @@ export default function WeatherForecast(props) {
     return days[day];
   }
 
-  if (props.coordinates.lat && props.coordinates.lon) {
-    function handleResponse(response) {
-      // console.log(response.data);
-      setForecasts(response.data.daily);
-    }
-    let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=current,hourly,minutely&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+  function handleResponse(response) {
+    console.log(response.data);
+    setForecasts(response.data.daily);
+    setLoaded(true);
+  }
+
+  if (loaded) {
     return (
       <>
-        {forecasts.map(function (forecast, index) {
+        {forecasts.map((forecast, index) => {
           if (index < 6) {
             return (
               <div className="col-2" key={index}>
@@ -37,8 +37,12 @@ export default function WeatherForecast(props) {
                   width="60"
                 />
                 <div className="weather-forecast-temp">
-                  <span className="fs-6">28 °C </span>
-                  <span className="fs-7">82 °F</span>
+                  <span className="fs-6">
+                    {Math.round(forecast.temp.day)} °C{" "}
+                  </span>
+                  <span className="fs-7">
+                    {Math.round((forecast.temp.day * 9) / 5 + 32)} °F
+                  </span>
                 </div>
               </div>
             );
@@ -49,6 +53,9 @@ export default function WeatherForecast(props) {
       </>
     );
   } else {
+    let apiKey = "bc5ca568ee2d7c71357ca430a3ff8705";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${props.coordinates.lat}&lon=${props.coordinates.lon}&exclude=current,hourly,minutely&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
     return <InfinitySpin width="200" color="#4fa94d" />;
   }
 }
