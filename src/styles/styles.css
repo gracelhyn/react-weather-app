@@ -1,3 +1,8 @@
+body {
+  background-image: url("../assets/pink-cloud.jpg");
+  background-size: cover;
+}
+
 .fs-7 {
   font-size: 0.8rem !important;
 }
